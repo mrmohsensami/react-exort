@@ -5,30 +5,20 @@ import "./index.css";
 const Greeting = () => {
     return (
         <section className="d-flex">
-            <Image />
-            <Image />
-            <Image />
-            <Image />
-            <Image />
-            <Image />
+            <Image title="This is title 1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapien.</Image>
+            <Image title="This is title 2" />
         </section>
     );
 };
 
-const Image = () => {
+const Image = (props) => {
+    const { title, children } = props;
     return (
         <div style={{ flexDirection: "column" }} className="d-flex">
-            <Title />
-            <img className="image" src="https://picsum.photos/200/300" alt="xxx" />
+            <h3>{title}</h3>
+            <img className="image" src="https://picsum.photos/400" alt="xxx" />
+            <p>{children}</p>
         </div>
-    );
-};
-
-const Title = () => {
-    return (
-        <>
-            <h3>This is title</h3>
-        </>
     );
 };
 
