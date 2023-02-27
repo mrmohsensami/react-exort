@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Window from "./Window";
+import Github from "./Github";
+// import Window from "./Window";
 // import Counter from "./Counter";
 // import App from "./App";
 // import { cars } from "./data";
@@ -19,4 +20,4 @@ import Window from "./Window";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Window />);
+root.render(<Github />);
