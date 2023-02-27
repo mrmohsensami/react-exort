@@ -4,9 +4,17 @@ import { data } from "./data";
 function App() {
     const [name, setName] = useState("Hello World");
     const [cars, setCars] = useState(data);
+    const [person, setPerson] = useState({
+        name: "mohsen",
+        age: 34,
+        message: "Hi",
+    });
     const handleRemove = (id) => {
         let newItem = cars.filter((car) => car.id !== id);
         setCars(newItem);
+    };
+    const changeMessage = () => {
+        setPerson({ ...person, message: "Hello World" });
     };
     return (
         <>
@@ -27,6 +35,15 @@ function App() {
             <button className="btn" onClick={() => setCars([])}>
                 Clear All
             </button>
+            <hr />
+            <div>
+                <h2>{person.name}</h2>
+                <h2>{person.age}</h2>
+                <h2>{person.message}</h2>
+                <button className="btn" onClick={changeMessage}>
+                    Chane Message
+                </button>
+            </div>
         </>
     );
 }
