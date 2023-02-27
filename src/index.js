@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Counter from "./Counter";
+import Window from "./Window";
+// import Counter from "./Counter";
 // import App from "./App";
 // import { cars } from "./data";
 // import Car from "./Car";
@@ -18,4 +19,4 @@ import Counter from "./Counter";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Counter />);
+root.render(<Window />);
