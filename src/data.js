@@ -1,4 +1,4 @@
-export const cars = [
+export const data = [
     {
         id: 1,
         title: "This is title 1",
