@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Condition from "./Condition";
+import Form from "./Form";
+// import Condition from "./Condition";
 // import Github from "./Github";
 // import Window from "./Window";
 // import Counter from "./Counter";
@@ -21,4 +22,4 @@ import Condition from "./Condition";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Condition />);
+root.render(<Form />);

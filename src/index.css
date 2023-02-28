@@ -1,3 +1,10 @@
+body {
+    background: lightblue;
+}
+.container {
+    width: 600px;
+    margin: 0 auto;
+}
 .d-flex {
     display: flex;
 }
@@ -18,4 +25,18 @@
     border: 0;
     cursor: pointer;
     margin: 0 5px;
+}
+.input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 11px;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    background: #fff;
+    padding: 1px 11px;
+    margin-bottom: 10px;
 }
