@@ -1,34 +1,41 @@
 import React, { useState } from "react";
 
 function Form() {
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
+    // const [fullName, setFullName] = useState("");
+    // const [email, setEmail] = useState("");
+    const [user, setUser] = useState({ fullname: "", email: "", age: "" });
     const [users, setUsers] = useState([]);
-    console.log(users);
+
+    const handleChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setUser({ ...user, [name]: value });
+    };
+
     const handleSubmit = (e) => {
-        if (fullName && email) {
-            e.preventDefault();
-            const user = {
-                fullName,
-                email,
-            };
+        e.preventDefault();
+        if (user.fullname && user.email) {
+            const newUser = { ...user, id: new Date().getTime().toString() };
             setUsers((users) => {
-                return [...users, user];
+                return [...users, newUser];
             });
-            setFullName("");
-            setEmail("");
+            setUser({ fullname: "", email: "", age: "" });
         } else {
             console.log("empty");
         }
     };
+
     return (
         <div className="container">
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <input onChange={(e) => setFullName(e.target.value)} value={fullName} className="input" name="fullname" placeholder="fullname" type="text" />
+                    <input onChange={handleChange} value={user.fullname} className="input" name="fullname" placeholder="fullname" type="text" />
                 </div>
                 <div className="form-group">
-                    <input onChange={(e) => setEmail(e.target.value)} value={email} className="input" name="email" placeholder="email" type="text" />
+                    <input onChange={handleChange} value={user.email} className="input" name="email" placeholder="email" type="text" />
+                </div>
+                <div className="form-group">
+                    <input onChange={handleChange} value={user.age} className="input" name="age" placeholder="age" type="text" />
                 </div>
                 <div className="form-group">
                     <button className="btn" type="submit">
@@ -38,11 +45,13 @@ function Form() {
             </form>
             <ul>
                 {users.map((user, index) => {
-                    const { fullName, email } = user;
+                    const { id, fullname, email, age } = user;
                     return (
                         <li key={index}>
-                            <h1>{fullName}</h1>
+                            <h1>{fullname}</h1>
                             <p>{email}</p>
+                            <p>{age}</p>
+                            <p>{id}</p>
                         </li>
                     );
                 })}
