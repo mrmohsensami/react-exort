@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Github from "./Github";
+import Condition from "./Condition";
+// import Github from "./Github";
 // import Window from "./Window";
 // import Counter from "./Counter";
 // import App from "./App";
@@ -20,4 +21,4 @@ import Github from "./Github";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Github />);
+root.render(<Condition />);
