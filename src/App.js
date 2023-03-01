@@ -1,49 +1,60 @@
-import React, { useState } from "react";
-import { data } from "./data";
+import React, { useReducer, useState } from "react";
+import Modal from "./Modal";
+import { reducer } from "./reducer";
 
 function App() {
-    const [name, setName] = useState("Hello World");
-    const [cars, setCars] = useState(data);
-    const [person, setPerson] = useState({
-        name: "mohsen",
-        age: 34,
-        message: "Hi",
-    });
-    const handleRemove = (id) => {
-        let newItem = cars.filter((car) => car.id !== id);
-        setCars(newItem);
+    const defaultState = {
+        people: [],
+        isModalOpen: false,
+        modalContent: "hello world",
     };
-    const changeMessage = () => {
-        setPerson({ ...person, message: "Hello World" });
+
+    const [name, setName] = useState("");
+    const [state, dispatch] = useReducer(reducer, defaultState);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (name) {
+            const newItem = { id: new Date().getTime().toString(), name };
+            dispatch({ type: "ADD_ITEM", payload: newItem });
+            setName("");
+        } else {
+            dispatch({ type: "NO_VALUE" });
+        }
     };
+
+    const closeModal = () => {
+        dispatch({ type: "CLOSE_MODAL" });
+    };
+
     return (
         <>
-            <h2>{name}</h2>
-            <button onClick={() => setName("mohsen")}>Click me</button>
-            <hr />
-            {cars.map((car) => {
-                const { id, title } = car;
-                return (
-                    <div className="item d-flex" key={id}>
-                        <h2>{title}</h2>
-                        <button className="btn" onClick={() => handleRemove(id)}>
-                            Remove Item
+            {state.isModalOpen && <Modal modalContent={state.modalContent} closeModal={closeModal} />}
+
+            <form onSubmit={handleSubmit}>
+                <div className="container">
+                    <div className="form-group">
+                        <input className="input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    </div>
+                    <div className="form-group">
+                        <button type="submit" className="btn">
+                            Add Item
                         </button>
                     </div>
-                );
-            })}
-            <button className="btn" onClick={() => setCars([])}>
-                Clear All
-            </button>
-            <hr />
-            <div>
-                <h2>{person.name}</h2>
-                <h2>{person.age}</h2>
-                <h2>{person.message}</h2>
-                <button className="btn" onClick={changeMessage}>
-                    Chane Message
-                </button>
-            </div>
+                </div>
+            </form>
+            <ul>
+                {state.people.map((item) => {
+                    return (
+                        <li className="d-flex" key={item.id}>
+                            <h2>{item.name}</h2>
+                            <button onClick={() => dispatch({ type: "REMOVE_ITEM", payload: item.id })} className="btn">
+                                Remove
+                            </button>
+                        </li>
+                    );
+                })}
+            </ul>
         </>
     );
 }

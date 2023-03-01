@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Form from "./Form";
+import App from "./App";
+// import Form from "./Form";
 // import Condition from "./Condition";
 // import Github from "./Github";
 // import Window from "./Window";
@@ -22,4 +23,4 @@ import Form from "./Form";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Form />);
+root.render(<App />);
