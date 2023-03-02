@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import ContextApi from "./ContextApi";
+import Photos from "./Photos";
 // import App from "./App";
 // import Form from "./Form";
 // import Condition from "./Condition";
@@ -24,4 +24,4 @@ import ContextApi from "./ContextApi";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<ContextApi />);
+root.render(<Photos />);
