@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Photos from "./Photos";
+import Products from "./Products";
 // import App from "./App";
 // import Form from "./Form";
 // import Condition from "./Condition";
@@ -24,4 +24,4 @@ import Photos from "./Photos";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Photos />);
+root.render(<Products />);

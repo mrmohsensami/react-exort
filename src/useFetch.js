@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { data } from "./data";
 
-export const useFetch = (url) => {
-    const [loading, setLoading] = useState(true);
-    const [photos, setPhotos] = useState([]);
+export const useFetch = () => {
+    const [products, setProducts] = useState(data);
 
-    const getPhotos = async () => {
-        const response = await fetch(url);
-        const data = await response.json();
-        setPhotos(data);
-        setLoading(false);
-    };
-
-    useEffect(() => {
-        getPhotos();
-    }, [url]);
-    return { loading, photos };
+    return { products };
 };
