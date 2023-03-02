@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Products from "./Products";
+import DarkMode from "./DarkMode";
 // import App from "./App";
 // import Form from "./Form";
 // import Condition from "./Condition";
@@ -24,4 +24,4 @@ import Products from "./Products";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Products />);
+root.render(<DarkMode />);
