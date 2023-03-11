@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import Items from "./Items";
+import Router from "./Router";
 
 // const App = () => {
 //     return (
@@ -15,4 +15,4 @@ import Items from "./Items";
 // };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Items />);
+root.render(<Router />);
